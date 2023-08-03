@@ -1,15 +1,17 @@
 package com.formaclean.projetfilrouge.entities;
-
+//region Imports
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+//endregion
 
 @Entity
 @Getter
 @Setter
 @Table(name = "workers")
 public class Worker {
-
+    //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    //region Attributes
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
@@ -19,7 +21,9 @@ public class Worker {
 
     @Column(name= "lastName", nullable = false)
     String lastName;
+    //endregion Attributes
     //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    //region Constructors
     public Worker(){
         this.setFirstName("John");
         this.setLastName("Doe");
@@ -28,5 +32,6 @@ public class Worker {
         this.firstName = firstName;
         this.lastName = lastName;
     }
+    //endregion
     //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 }
