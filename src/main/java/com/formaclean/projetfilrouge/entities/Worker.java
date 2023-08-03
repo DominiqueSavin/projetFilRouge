@@ -14,13 +14,12 @@ public class Worker {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column
+    @Column(name = "firstName")
     String firstName;
 
-    @Column(nullable = false)
+    @Column(name= "lastName", nullable = false)
     String lastName;
-
-
+    //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     public Worker(){
         this.setFirstName("John");
         this.setLastName("Doe");
@@ -29,4 +28,5 @@ public class Worker {
         this.firstName = firstName;
         this.lastName = lastName;
     }
+    //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 }
