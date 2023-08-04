@@ -44,11 +44,7 @@ public class Job {
     //endregion Attributes
     //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     // region Constructors
-    public Job(LocalDate date, Client client){
-        this.date=date;
-        this.comment=null;
-        this.client=client;
-    }
+
 
     public Job(LocalDate date, String comment, Client client){
         this.date=date;

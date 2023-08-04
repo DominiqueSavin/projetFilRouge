@@ -1,10 +1,10 @@
 package com.formaclean.projetfilrouge.controller;
 
+import com.formaclean.projetfilrouge.entities.Area;
 import com.formaclean.projetfilrouge.entities.Job;
-import com.formaclean.projetfilrouge.entities.Worker;
+import com.formaclean.projetfilrouge.models.forms.AreaCreateForm;
 import com.formaclean.projetfilrouge.models.forms.JobCreateForm;
-import com.formaclean.projetfilrouge.models.forms.WorkerCreateForm;
-import com.formaclean.projetfilrouge.services.JobService;
+import com.formaclean.projetfilrouge.services.AreaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,25 +16,24 @@ import java.time.LocalDate;
 import java.util.List;
 
 @RestController
-class JobController {
+public class AreaController {
 
-    private JobService jobService;
+    private AreaService areaService;
 
     @Autowired
-    public JobController(JobService jobService){
-        this.jobService=jobService;
+    public AreaController(AreaService areaService){
+        this.areaService=areaService;
     }
 
-    //region Mappings
-    @GetMapping("/jobs")
-    public List<Job> getJobs(){
-        return jobService.getAllJobs();
-    }
-    @PostMapping("/jobs")
-    public Job createJob(@Validated @RequestBody JobCreateForm form){
-        return jobService.createJob(LocalDate.parse(form.date()), form.comment(),form.client());
-    }
 
+    @GetMapping("/areas")
+    public List<Area> getJobs(){
+        return areaService.getAllAreas();
+    }
+    @PostMapping("/areas")
+    public Area createArea(@Validated @RequestBody AreaCreateForm form){
+        return areaService.createArea(form.name(), form.clientName());
+    }
 
 
 

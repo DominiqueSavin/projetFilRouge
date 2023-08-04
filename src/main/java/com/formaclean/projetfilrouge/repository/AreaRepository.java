@@ -1,10 +1,9 @@
 package com.formaclean.projetfilrouge.repository;
 
-import com.formaclean.projetfilrouge.entities.Client;
+import com.formaclean.projetfilrouge.entities.Area;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface ClientRepository extends JpaRepository<Client,String> {
-
+public interface AreaRepository extends JpaRepository<Area,Long> {
 }

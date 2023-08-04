@@ -1,16 +1,24 @@
 package com.formaclean.projetfilrouge.entities;
 
 import com.formaclean.projetfilrouge.repository.ClientRepository;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.context.annotation.Primary;
 
+import java.io.Serializable;
+
 @Entity
+@Getter
+@Setter
 @Table(name = "clients")
-public class Client {
+public class Client implements Serializable {
 
     @Id
+    @GeneratedValue
+    private long id;
+
+    @Column(unique = true)
     private String name;
 
 

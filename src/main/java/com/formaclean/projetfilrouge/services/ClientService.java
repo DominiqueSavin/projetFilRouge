@@ -2,6 +2,7 @@ package com.formaclean.projetfilrouge.services;
 
 import com.formaclean.projetfilrouge.entities.Client;
 import com.formaclean.projetfilrouge.entities.Worker;
+import com.formaclean.projetfilrouge.models.forms.ClientCreateForm;
 import com.formaclean.projetfilrouge.repository.ClientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
