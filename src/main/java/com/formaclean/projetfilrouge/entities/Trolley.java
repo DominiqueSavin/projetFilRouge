@@ -6,7 +6,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "trolleys")
-class Trolley {
+public class Trolley {
 
     @Id
     private int number;

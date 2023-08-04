@@ -30,8 +30,6 @@ public class Job {
     @Column
     private String comment;
 
-
-
     @OneToOne
     @JoinColumn(name = "client.name", foreignKey = @ForeignKey(name = "fk_job_client"))
     Client client;
@@ -56,6 +54,10 @@ public class Job {
         this.date=date;
         this.comment=comment;
         this.client=client;
+    }
+
+    public Job() {
+
     }
     //endregion
     //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

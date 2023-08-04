@@ -1,11 +1,13 @@
 package com.formaclean.projetfilrouge.services;
 
+import com.formaclean.projetfilrouge.entities.Client;
 import com.formaclean.projetfilrouge.entities.Job;
 import com.formaclean.projetfilrouge.entities.Worker;
 import com.formaclean.projetfilrouge.repository.JobRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Service
@@ -23,11 +25,11 @@ public class JobService {
         return jobRepository.findAll();
     }
 
-    public Job createJob(String firstName, String lastName){
+    public Job createJob(LocalDate date, String comment, Client client){
 
-        Worker worker = new Worker(firstName,lastName);
-        this.workerRepository.save(worker);
-        return worker;
+        Job job = new Job(date,comment,client);
+        this.jobRepository.save(job);
+        return job;
     }
 
 

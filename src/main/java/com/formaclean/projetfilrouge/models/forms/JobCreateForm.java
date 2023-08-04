@@ -8,8 +8,8 @@ import java.time.LocalDate;
 public record JobCreateForm(
         @NotBlank
         LocalDate date,
-
         String comment,
+        @NotBlank
         Client client
 ) {
 

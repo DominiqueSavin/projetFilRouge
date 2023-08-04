@@ -1,9 +1,9 @@
 package com.formaclean.projetfilrouge.repository;
 
-import com.formaclean.projetfilrouge.entities.Job;
+import com.formaclean.projetfilrouge.entities.Client;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface JobRepository extends JpaRepository<Job,Long> {
+public interface ClientRepository extends JpaRepository<Client,String> {
 }
