@@ -17,6 +17,13 @@ public class Trolley {
     @GeneratedValue
     private int number;
 
+    @ManyToMany
+    @JoinColumn(name = "product.id", foreignKey = @ForeignKey(name ="fk_trolley_product"))
+    private List<Product> productList;
+    @ManyToMany
+    @JoinColumn(name = "supply.id", foreignKey = @ForeignKey(name ="fk_trolley_supply"))
+    private List<Product> supplyList;
+
 
 
 

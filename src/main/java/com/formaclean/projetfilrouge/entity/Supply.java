@@ -25,6 +25,10 @@ public class Supply {
     @Column
     private LocalDate purchaseDate;
 
+    @OneToOne
+    @JoinColumn(name="trolley.id", foreignKey =@ForeignKey(name="fk_supply_trolley"))
+    private Trolley trolley;
+
 
     public Supply(String name, String description){
         this.name=name;
@@ -34,5 +38,14 @@ public class Supply {
 
     public Supply() {
 
+    }
+
+
+    public void allocateProduct(Trolley trolley){
+            this.trolley=trolley;
+    }
+
+    public void transferProductToStock(){
+        this.trolley=null;
     }
 }

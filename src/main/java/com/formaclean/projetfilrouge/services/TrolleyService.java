@@ -1,5 +1,6 @@
 package com.formaclean.projetfilrouge.services;
 
+import com.formaclean.projetfilrouge.entity.Product;
 import com.formaclean.projetfilrouge.entity.Trolley;
 import com.formaclean.projetfilrouge.repository.TrolleyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +27,8 @@ public class TrolleyService {
         trolleyRepository.save(trolley);
         return trolley;
     }
+
+
 
 
 
