@@ -1,9 +1,7 @@
 package com.formaclean.projetfilrouge.controller;
 
-import com.formaclean.projetfilrouge.entities.Area;
-import com.formaclean.projetfilrouge.entities.Job;
+import com.formaclean.projetfilrouge.entity.Area;
 import com.formaclean.projetfilrouge.models.forms.AreaCreateForm;
-import com.formaclean.projetfilrouge.models.forms.JobCreateForm;
 import com.formaclean.projetfilrouge.services.AreaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
@@ -12,7 +10,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.time.LocalDate;
 import java.util.List;
 
 @RestController

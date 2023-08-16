@@ -1,18 +1,19 @@
-package com.formaclean.projetfilrouge.entities;
+package com.formaclean.projetfilrouge.entity;
 
 import jakarta.persistence.*;
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
-@Getter
-@Setter
+@Data
 @Table(name = "jobs")
 public class Job {
 
-    //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
     //region Attributes
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,9 +31,9 @@ public class Job {
     @Column
     private String comment;
 
-    @OneToOne
-    @JoinColumn(name = "client.name", foreignKey = @ForeignKey(name = "fk_job_client"))
-    Client client;
+    @ManyToOne
+    @JoinColumn(name = "client.id", foreignKey = @ForeignKey(name = "fk_job_client"))
+    private Client client;
 
     @ManyToOne
     @JoinColumn(name = "worker.id", foreignKey = @ForeignKey(name = "fk_job_worker"))
@@ -41,8 +42,12 @@ public class Job {
     @ManyToOne
     @JoinColumn(name = "trolley.number", foreignKey = @ForeignKey(name = "fk_job_trolley"))
     private Trolley trolley;
+
+    @ManyToMany
+    @JoinColumn(name="task.id", foreignKey = @ForeignKey(name = "fk_job_task"))
+    private List<Task> taskList;
     //endregion Attributes
-    //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
     // region Constructors
 
 
@@ -56,7 +61,7 @@ public class Job {
 
     }
     //endregion
-    //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 
 
 }

@@ -1,6 +1,6 @@
 package com.formaclean.projetfilrouge.services;
 
-import com.formaclean.projetfilrouge.entities.Trolley;
+import com.formaclean.projetfilrouge.entity.Trolley;
 import com.formaclean.projetfilrouge.repository.TrolleyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

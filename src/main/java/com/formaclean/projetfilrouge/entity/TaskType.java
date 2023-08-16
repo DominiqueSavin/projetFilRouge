@@ -1,4 +1,4 @@
-package com.formaclean.projetfilrouge.entities;
+package com.formaclean.projetfilrouge.entity;
 
 public enum TaskType {
 

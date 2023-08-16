@@ -1,12 +1,9 @@
 package com.formaclean.projetfilrouge.controller;
 
-import com.formaclean.projetfilrouge.entities.Client;
-import com.formaclean.projetfilrouge.entities.Worker;
+import com.formaclean.projetfilrouge.entity.Client;
 import com.formaclean.projetfilrouge.models.forms.ClientCreateForm;
-import com.formaclean.projetfilrouge.models.forms.WorkerCreateForm;
 import com.formaclean.projetfilrouge.services.ClientService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;

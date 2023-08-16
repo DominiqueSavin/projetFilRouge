@@ -1,9 +1,7 @@
 package com.formaclean.projetfilrouge.controller;
 
-import com.formaclean.projetfilrouge.entities.Job;
-import com.formaclean.projetfilrouge.entities.Worker;
+import com.formaclean.projetfilrouge.entity.Job;
 import com.formaclean.projetfilrouge.models.forms.JobCreateForm;
-import com.formaclean.projetfilrouge.models.forms.WorkerCreateForm;
 import com.formaclean.projetfilrouge.services.JobService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
@@ -32,7 +30,7 @@ class JobController {
     }
     @PostMapping("/jobs")
     public Job createJob(@Validated @RequestBody JobCreateForm form){
-        return jobService.createJob(LocalDate.parse(form.date()), form.comment(),form.client());
+        return jobService.createJob(LocalDate.parse(form.date()), form.comment(),form.clientName());
     }
 
 

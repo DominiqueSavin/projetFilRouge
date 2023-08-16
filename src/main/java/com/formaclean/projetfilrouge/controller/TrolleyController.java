@@ -1,6 +1,9 @@
 package com.formaclean.projetfilrouge.controller;
 
-import com.formaclean.projetfilrouge.entities.Trolley;
+import com.formaclean.projetfilrouge.entity.Trolley;
+import com.formaclean.projetfilrouge.entity.Worker;
+import com.formaclean.projetfilrouge.models.forms.TrolleyCreateForm;
+import com.formaclean.projetfilrouge.models.forms.WorkerCreateForm;
 import com.formaclean.projetfilrouge.services.TrolleyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
@@ -28,7 +31,7 @@ public class TrolleyController {
         return trolleyService.getAllTrolleys();
     }
     @PostMapping("/trolleys")
-    public Trolley createTrolley(){
+    public Trolley createTrolley(@Validated @RequestBody TrolleyCreateForm form){
         return trolleyService.createTrolley();
     }
     //endregion

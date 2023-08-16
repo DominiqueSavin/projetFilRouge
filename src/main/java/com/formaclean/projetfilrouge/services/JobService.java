@@ -1,7 +1,7 @@
 package com.formaclean.projetfilrouge.services;
 
-import com.formaclean.projetfilrouge.entities.Client;
-import com.formaclean.projetfilrouge.entities.Job;
+import com.formaclean.projetfilrouge.entity.Client;
+import com.formaclean.projetfilrouge.entity.Job;
 import com.formaclean.projetfilrouge.repository.ClientRepository;
 import com.formaclean.projetfilrouge.repository.JobRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,13 +15,15 @@ public class JobService {
 
     private JobRepository jobRepository;
     private final ClientRepository clientRepository;
+    //private final ClientService clientService;
 
     @Autowired
     public JobService(
             JobRepository jobRepository,
-            ClientRepository clientRepository){
+            ClientRepository clientRepository/*,ClientService clientService*/){
         this.jobRepository=jobRepository;
         this.clientRepository = clientRepository;
+        //this.clientService=clientService;
     }
 
 
@@ -30,9 +32,14 @@ public class JobService {
     }
 
     public Job createJob(LocalDate date, String comment, String clientName){
-        Client client = this.clientRepository.findById(clientName).orElseThrow();
+        System.out.println();
+        Client client = this.clientRepository.findByName(clientName).orElse(null);//orE
+        if(client==null){
+            client=new Client(clientName);
+            client =clientRepository.save(client);
+                    }
         Job job = new Job(date,comment,client);
-        this.jobRepository.save(job);
+        job = this.jobRepository.save(job);
         return job;
     }
 

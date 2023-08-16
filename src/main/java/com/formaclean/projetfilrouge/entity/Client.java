@@ -1,21 +1,19 @@
-package com.formaclean.projetfilrouge.entities;
+package com.formaclean.projetfilrouge.entity;
 
-import com.formaclean.projetfilrouge.repository.ClientRepository;
 import jakarta.persistence.*;
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
-import org.springframework.context.annotation.Primary;
 
 import java.io.Serializable;
 
-@Entity
-@Getter
-@Setter
+@Entity(name = "clients")
+@Data
 @Table(name = "clients")
 public class Client implements Serializable {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     @Column(unique = true)

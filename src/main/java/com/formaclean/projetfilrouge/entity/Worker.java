@@ -1,4 +1,4 @@
-package com.formaclean.projetfilrouge.entities;
+package com.formaclean.projetfilrouge.entity;
 //region Imports
 import jakarta.persistence.*;
 import lombok.Getter;

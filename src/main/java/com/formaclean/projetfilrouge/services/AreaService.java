@@ -1,7 +1,7 @@
 package com.formaclean.projetfilrouge.services;
 
-import com.formaclean.projetfilrouge.entities.Area;
-import com.formaclean.projetfilrouge.entities.Client;
+import com.formaclean.projetfilrouge.entity.Area;
+import com.formaclean.projetfilrouge.entity.Client;
 import com.formaclean.projetfilrouge.repository.AreaRepository;
 import com.formaclean.projetfilrouge.repository.ClientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
