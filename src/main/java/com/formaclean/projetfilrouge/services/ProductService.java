@@ -33,4 +33,11 @@ public class ProductService {
         return product;
     }
 
+    public void allocateProduct(Product product,Trolley trolley){
+        product.setTrolley(trolley);
+        product.isMissingProduct();
+    }
+
+
+
 }

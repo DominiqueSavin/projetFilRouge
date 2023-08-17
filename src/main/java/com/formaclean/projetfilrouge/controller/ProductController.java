@@ -2,6 +2,7 @@ package com.formaclean.projetfilrouge.controller;
 
 import com.formaclean.projetfilrouge.entity.Job;
 import com.formaclean.projetfilrouge.entity.Product;
+import com.formaclean.projetfilrouge.entity.Trolley;
 import com.formaclean.projetfilrouge.models.forms.JobCreateForm;
 import com.formaclean.projetfilrouge.models.forms.ProductCreateForm;
 import com.formaclean.projetfilrouge.services.ProductService;
@@ -33,6 +34,11 @@ public class ProductController {
     @PostMapping("/products")
     public Product createProduct(@Validated @RequestBody ProductCreateForm form){
         return productService.createProduct(form.name(),form.description(),form.trolley(),form.serialNumber(),form.purchaseDate());
+    }
+
+    @PostMapping("/produits/allocate")
+    public void allocateProduct(Product product, Trolley trolley){
+        productService.allocateProduct(product,trolley);
     }
 
 

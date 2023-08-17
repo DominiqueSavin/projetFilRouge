@@ -26,7 +26,11 @@ public class AreaService {
     }
 
     public Area createArea (String name, String clientName){
-        Client client = this.clientRepository.findById(clientName) .orElseThrow();
+        Client client = this.clientRepository.findByName(clientName).orElse(null);
+        if(client==null){
+            client=new Client(clientName);
+            client =clientRepository.save(client);
+        }
         Area area = new Area(name,client);
         this.areaRepository.save(area);
         return area;

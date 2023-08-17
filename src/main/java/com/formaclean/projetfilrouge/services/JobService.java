@@ -1,9 +1,9 @@
 package com.formaclean.projetfilrouge.services;
 
-import com.formaclean.projetfilrouge.entity.Client;
-import com.formaclean.projetfilrouge.entity.Job;
+import com.formaclean.projetfilrouge.entity.*;
 import com.formaclean.projetfilrouge.repository.ClientRepository;
 import com.formaclean.projetfilrouge.repository.JobRepository;
+import com.formaclean.projetfilrouge.repository.TrolleyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,15 +15,17 @@ public class JobService {
 
     private JobRepository jobRepository;
     private final ClientRepository clientRepository;
+
+    private final TrolleyRepository trolleyRepository;
     //private final ClientService clientService;
 
     @Autowired
     public JobService(
             JobRepository jobRepository,
-            ClientRepository clientRepository/*,ClientService clientService*/){
+            ClientRepository clientRepository, TrolleyRepository trolleyRepository){
         this.jobRepository=jobRepository;
         this.clientRepository = clientRepository;
-        //this.clientService=clientService;
+        this.trolleyRepository=trolleyRepository;
     }
 
 
@@ -32,8 +34,7 @@ public class JobService {
     }
 
     public Job createJob(LocalDate date, String comment, String clientName){
-        System.out.println();
-        Client client = this.clientRepository.findByName(clientName).orElse(null);//orE
+        Client client = this.clientRepository.findByName(clientName).orElse(null);
         if(client==null){
             client=new Client(clientName);
             client =clientRepository.save(client);
@@ -41,6 +42,22 @@ public class JobService {
         Job job = new Job(date,comment,client);
         job = this.jobRepository.save(job);
         return job;
+    }
+
+    public void allocateWorker(Job job, Worker worker){
+        job.setWorker(worker);
+    }
+
+    public void allocateTrolley(long jobId, int trolleyId){
+        Job job = jobRepository.findById(jobId).orElseThrow();
+        Trolley trolley = trolleyRepository.findById(trolleyId).orElseThrow();
+        job.setTrolley(trolley);
+        jobRepository.save(job);
+
+    }
+
+    public void addTask(Job job, Task task){
+        job.getTaskList().add(task);
     }
 
 

@@ -28,6 +28,12 @@ public class TrolleyService {
         return trolley;
     }
 
+    public void reportMissingProduct(Product product, Trolley trolley){
+        trolley.getProductList().remove(product);
+
+
+    }
+
 
 
 

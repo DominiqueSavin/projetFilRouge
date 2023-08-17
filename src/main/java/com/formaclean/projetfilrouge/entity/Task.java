@@ -20,6 +20,10 @@ public class Task {
     private LocalDate lastDone;
     @Column
     private TaskType type;
+    @ManyToOne
+    @JoinColumn(name="area.id", foreignKey = @ForeignKey(name="fk_task_area"))
+    private Area area;
+
 
 
     public Task(String name,TaskType type){

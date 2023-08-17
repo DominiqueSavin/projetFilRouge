@@ -31,7 +31,7 @@ public class TrolleyController {
         return trolleyService.getAllTrolleys();
     }
     @PostMapping("/trolleys")
-    public Trolley createTrolley(@Validated @RequestBody TrolleyCreateForm form){
+    public Trolley createTrolley(){
         return trolleyService.createTrolley();
     }
     //endregion

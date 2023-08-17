@@ -1,7 +1,9 @@
 package com.formaclean.projetfilrouge.services;
 
 import com.formaclean.projetfilrouge.entity.Job;
+import com.formaclean.projetfilrouge.entity.Product;
 import com.formaclean.projetfilrouge.entity.Supply;
+import com.formaclean.projetfilrouge.entity.Trolley;
 import com.formaclean.projetfilrouge.repository.SupplyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -31,6 +33,10 @@ public class SupplyService {
         supply.setPurchaseDate(purchaseDate);
         supplyRepository.save(supply);
         return supply;
+    }
+
+    public void allocateSupply(Supply supply, Trolley trolley){
+        supply.setTrolley(trolley);
     }
 
 

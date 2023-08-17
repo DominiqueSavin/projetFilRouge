@@ -16,10 +16,11 @@ public class Area {
     @Column
     private String name;
 
-
     @ManyToOne
-    @JoinColumn(name = "client_id", referencedColumnName = "id")
+    @JoinColumn(name = "client_id", foreignKey = @ForeignKey(name="client.id"))
     private Client client;
+
+
 
 
     public Area(String name, Client client){

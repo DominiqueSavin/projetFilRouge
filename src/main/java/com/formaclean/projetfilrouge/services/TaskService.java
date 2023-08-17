@@ -29,6 +29,10 @@ private TaskRepository taskRepository;
         return task;
     }
 
+    public void setTaskType(Task task, TaskType taskType){
+    task.setType(taskType);
+    }
+
 
 
 
