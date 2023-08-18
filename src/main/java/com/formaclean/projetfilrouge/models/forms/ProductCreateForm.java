@@ -1,6 +1,6 @@
 package com.formaclean.projetfilrouge.models.forms;
 
-import com.formaclean.projetfilrouge.entity.Trolley;
+import com.formaclean.projetfilrouge.dal.entities.Trolley;
 
 import java.time.LocalDate;
 
